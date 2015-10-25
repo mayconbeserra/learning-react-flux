@@ -6,4 +6,5 @@ It also includes some stopics like gulp, browserfy and bootstrap.
 
 # Steps done on this project
 
-+ Setup the gulpfile
++ Setup the gulp in the project
++ Setup the browserify in the project
