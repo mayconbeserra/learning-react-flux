@@ -66,3 +66,16 @@ Why: cleanup.
 + Props: Pass data to child components;
 + State: Data in controller view;
 + Lifecycle: Handle bootstrapping and third party integrations;
+
+# Composition
+
+Controller View is a react component. It is also:
+
++ Top level component;
++ Sets props on children;
++ Interacts with stores (flux);
+
+Notes: It's recommended to have a single top-level controller view that interacts with the store,
+and passes all the necessary data down to the children.
+Another quick is - it's possible to nest your controller views, but it's not recommended to do so,
+since it can cause multiple data updates. It can also cause React's render method to get called multiple times.
