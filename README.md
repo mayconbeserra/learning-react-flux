@@ -60,3 +60,9 @@ Why: work with the DOM after an update.
 
 When: Immediately before component is removed from the DOM.
 Why: cleanup.
+
+# Summary of Dynamic Data and Lifecycle
+
++ Props: Pass data to child components;
++ State: Data in controller view;
++ Lifecycle: Handle bootstrapping and third party integrations;
