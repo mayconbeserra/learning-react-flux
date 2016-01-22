@@ -79,3 +79,23 @@ Notes: It's recommended to have a single top-level controller view that interact
 and passes all the necessary data down to the children.
 Another quick is - it's possible to nest your controller views, but it's not recommended to do so,
 since it can cause multiple data updates. It can also cause React's render method to get called multiple times.
+
+# Prop Validation (PropTypes)
+
+Prop types are a great way to be explicit about the data that we are expect to see in our component's properties.
+
+We can specify that certain properties are required, and also specify the data types for each prop, such as string, bool, interger, etc.
+
+Prop types are simply a map that lets us specify a validation function for each property.
+
+When it fails, a warning is logged in our console (browser).
+
+E.g.
+
+propTypes: {
+  author:     React.PropTypes.object.isRequired,
+  onSave:     React.PropTypes.func.isRequired,
+  validate:   React.PropTypes.func.isRequired,
+  errors:     React.PropTypes.object,
+  hasErrors:  React.PropTypes.func.isRequired
+}

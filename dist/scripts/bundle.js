@@ -43537,6 +43537,10 @@ var React = require('react');
 
 var AuthorList = React.createClass({displayName: "AuthorList",
 
+    propTypes: {
+        authors: React.PropTypes.array.isRequired
+    },
+
     render: function() {
 
         var createAuthorRow = function(author) {
@@ -43573,7 +43577,7 @@ var React = require('react');
 var AuthorApi = require('../../api/authorAPI');
 var AuthorList = require('./authorList');
 
-var Authors = React.createClass({displayName: "Authors",
+var AuthorPage = React.createClass({displayName: "AuthorPage",
 
     getInitialState: function() {
         return {
@@ -43597,7 +43601,7 @@ var Authors = React.createClass({displayName: "Authors",
     }
 });
 
-module.exports = Authors;
+module.exports = AuthorPage;
 
 },{"../../api/authorAPI":160,"./authorList":163,"react":159}],165:[function(require,module,exports){
 "use strict";
