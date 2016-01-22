@@ -99,3 +99,13 @@ propTypes: {
   errors:     React.PropTypes.object,
   hasErrors:  React.PropTypes.func.isRequired
 }
+
+# Mixins
+
+Share behavior among multiple components.
+
+# React Router
+
++ Nested views map to nested routes
++ Declarative
++ Used at facebook
