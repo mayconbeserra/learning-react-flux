@@ -109,3 +109,8 @@ Share behavior among multiple components.
 + Nested views map to nested routes
 + Declarative
 + Used at facebook
+
+## Handling Transitions
+
+willTransitionTo - Determine if page should be transitioned to.
+willTransitionFrom - Run checks before user navigates away.
