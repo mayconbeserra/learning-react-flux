@@ -46586,19 +46586,21 @@ module.exports = AuthorPage;
 "use strict";
 
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Header = React.createClass({displayName: "Header",
 	render: function() {
 		return (
         React.createElement("nav", {className: "navbar navbar-default"}, 
           React.createElement("div", {className: "container-fluid"}, 
-              React.createElement("a", {href: "/", className: "navbar-brand"}, 
+              React.createElement(Link, {to: "app", className: "navbar-brand"}, 
                 React.createElement("img", {src: "images/pluralsight-logo.png"})
               ), 
               React.createElement("ul", {className: "nav navbar-nav"}, 
-                React.createElement("li", null, React.createElement("a", {href: "/"}, "Home")), 
-								React.createElement("li", null, React.createElement("a", {href: "/#authors"}, "Authors")), 
-                React.createElement("li", null, React.createElement("a", {href: "/#about"}, "About"))
+                React.createElement("li", null, React.createElement(Link, {to: "app"}, "Home")), 
+								React.createElement("li", null, React.createElement(Link, {to: "authors"}, "Authors")), 
+                React.createElement("li", null, React.createElement(Link, {to: "about"}, "About"))
               )
           )
         )
@@ -46608,17 +46610,20 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":198}],206:[function(require,module,exports){
+},{"react":198,"react-router":29}],206:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
+var Router = require('react-router');
+//var Link = Router.Link;
 
 var Home = React.createClass({displayName: "Home",
     render: function() {
         return (
           React.createElement("div", {className: "jumbotron"}, 
             React.createElement("h1", null, "Pluralsight administration"), 
-            React.createElement("p", null, "React, react router, and flux for ultra-responsive web apps.")
+            React.createElement("p", null, "React, react router, and flux for ultra-responsive web apps."), 
+            React.createElement(Router.Link, {to: "about", className: "btn btn-primary btn-lg"}, "Learn more")
           )
         );
     }
@@ -46626,7 +46631,28 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":198}],207:[function(require,module,exports){
+},{"react":198,"react-router":29}],207:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
+
+var NotFoundPage = React.createClass({displayName: "NotFoundPage",
+    render: function() {
+        return (
+          React.createElement("div", {className: "jumbotron"}, 
+            React.createElement("h1", null, "Page Not Found"), 
+            React.createElement("p", null, "Whoops! Sorry, there is nothing to see here."), 
+            React.createElement("p", null, React.createElement(Link, {to: "app"}, "Back to Home"))
+          )
+        );
+    }
+});
+
+module.exports = NotFoundPage;
+
+},{"react":198,"react-router":29}],208:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -46637,22 +46663,24 @@ Router.run(routes, function(Handler) {
     React.render(React.createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":208,"react":198,"react-router":29}],208:[function(require,module,exports){
+},{"./routes":209,"react":198,"react-router":29}],209:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
 var Router = require('react-router');
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
+var NotFoundRoute = Router.NotFoundRoute;
 
 var routes = (
     React.createElement(Route, {name: "app", path: "/", handler: require('./components/app') }, 
       React.createElement(DefaultRoute, {handler: require('./components/homePage')}), 
       React.createElement(Route, {name: "authors", handler: require('./components/authors/authorPage')}), 
-      React.createElement(Route, {name: "about", handler: require('./components/about/aboutPage')})
+      React.createElement(Route, {name: "about", handler: require('./components/about/aboutPage')}), 
+      React.createElement(NotFoundRoute, {handler: require('./components/notFoundPage')})
     )
 );
 
 module.exports = routes;
 
-},{"./components/about/aboutPage":201,"./components/app":202,"./components/authors/authorPage":204,"./components/homePage":206,"react":198,"react-router":29}]},{},[207]);
+},{"./components/about/aboutPage":201,"./components/app":202,"./components/authors/authorPage":204,"./components/homePage":206,"./components/notFoundPage":207,"react":198,"react-router":29}]},{},[208]);
