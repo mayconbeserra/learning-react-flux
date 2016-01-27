@@ -26,6 +26,7 @@ var AuthorActions = {
     },
 
     deleteAuthor: function(id) {
+        debugger; //Action
         AuthorApi.deleteAuthor(id);
 
         Dispatcher.dispatch({

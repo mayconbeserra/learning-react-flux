@@ -47451,6 +47451,7 @@ var AuthorActions = {
     },
 
     deleteAuthor: function(id) {
+        debugger; //Action
         AuthorApi.deleteAuthor(id);
 
         Dispatcher.dispatch({
@@ -47678,6 +47679,7 @@ var AuthorList = React.createClass({displayName: "AuthorList",
 
     deleteAuthor: function(id, event) {
         event.preventDefault();
+        debugger; //React View
         AuthorActions.deleteAuthor(id);
         toastr.success('Author Deleted');
     },
@@ -47731,14 +47733,17 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
     },
 
     componentWillMount: function() {
+        debugger;
         AuthorStore.addChangeListener(this._onChange);
     },
 
     componentWillUnmount: function() {
+        debugger;
         AuthorStore.removeChangeListener(this._onChange);
     },
 
     _onChange: function() {
+        debugger;
         this.setState({ authors: AuthorStore.getAllAuthors() });
     },
 
@@ -48047,6 +48052,7 @@ var AuthorStore = assign({}, EventEmitter.prototype, {
     },
 
     emitChange: function() {
+        debugger;
         this.emit(CHANGE_EVENT);
     },
 
@@ -48076,6 +48082,7 @@ Dispatcher.register(function(action) {
         AuthorStore.emitChange();
         break;
       case ActionTypes.DELETE_AUTHOR:
+        debugger;
         _.remove(_authors, function(author) {
             return action.id === author.id;
         });

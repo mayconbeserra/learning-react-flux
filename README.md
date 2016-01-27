@@ -114,3 +114,11 @@ Share behavior among multiple components.
 
 willTransitionTo - Determine if page should be transitioned to.
 willTransitionFrom - Run checks before user navigates away.
+
+# Flux example
+
+1) AuthorList.js (ReactView)
+2) AuthorAction.js (Action)
+3) Dispatcher notify all the stores (Dispatcher)
+4) AuthorStore.js (Store)
+5) 
