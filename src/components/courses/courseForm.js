@@ -48,7 +48,7 @@ var CourseForm = React.createClass({
                       options={this.props.authors}
                       field="firstName"
                       dropDownValueChanged={this.props.onAuthorChanged}
-                      value={authorExists ? this.props.course.author : ''}
+                      value={authorExists ? this.props.course.author.id : ''}
                       error={this.props.errors.author} />
                 <Input
                       name="length"

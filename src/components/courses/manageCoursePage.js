@@ -52,7 +52,7 @@ var ManageCoursePage = React.createClass({
     onAuthorChanged: function(author) {
         debugger;
         this.state.course.author = AuthorStore.getAuthorNameById(author);
-        this.setState({course: this.state.course});
+        //this.setState({course: this.state.course});
     },
 
     courseFormIsValid: function() {

@@ -48022,9 +48022,16 @@ var React = require('react');
 
 var DropDown = React.createClass({displayName: "DropDown",
 
-    onFormChange: function() {
-        var val = React.findDOMNode(this.refs.dropdown).value;
-        this.props.dropDownValueChanged(val);
+    getInitialState: function() {
+        return {
+            value: this.props.value
+        };
+    },
+
+    onFormChange: function(event) {
+        debugger;
+        this.setState({value: event.target.value});
+        this.props.dropDownValueChanged(event.target.value);
     },
 
     render: function() {
@@ -48044,7 +48051,7 @@ var DropDown = React.createClass({displayName: "DropDown",
         var wrapperClass = 'form-group';
 
         if (this.props.error && this.props.error.length > 0) {
-          wrapperClass += " " + 'has-error';
+            wrapperClass += " " + 'has-error';
         }
 
         return (
@@ -48052,7 +48059,7 @@ var DropDown = React.createClass({displayName: "DropDown",
             React.createElement("label", {htmlFor: this.props.value}, this.props.label), 
             React.createElement("div", {className: "field"}, 
 
-            React.createElement("select", {className: "form-control", ref: "dropdown", value: this.props.value ? this.props.value.id : '', onChange: this.onFormChange}, 
+            React.createElement("select", {className: "form-control", ref: "dropdown", value: this.state.value ? this.state.value : '', onChange: this.onFormChange}, 
               options
             ), 
 
@@ -48188,7 +48195,7 @@ var CourseForm = React.createClass({displayName: "CourseForm",
                       options: this.props.authors, 
                       field: "firstName", 
                       dropDownValueChanged: this.props.onAuthorChanged, 
-                      value: authorExists ? this.props.course.author : '', 
+                      value: authorExists ? this.props.course.author.id : '', 
                       error: this.props.errors.author}), 
                 React.createElement(Input, {
                       name: "length", 

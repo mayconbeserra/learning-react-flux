@@ -4,9 +4,16 @@ var React = require('react');
 
 var DropDown = React.createClass({
 
-    onFormChange: function() {
-        var val = React.findDOMNode(this.refs.dropdown).value;
-        this.props.dropDownValueChanged(val);
+    getInitialState: function() {
+        return {
+            value: this.props.value
+        };
+    },
+
+    onFormChange: function(event) {
+        debugger;
+        this.setState({value: event.target.value});
+        this.props.dropDownValueChanged(event.target.value);
     },
 
     render: function() {
@@ -26,7 +33,7 @@ var DropDown = React.createClass({
         var wrapperClass = 'form-group';
 
         if (this.props.error && this.props.error.length > 0) {
-          wrapperClass += " " + 'has-error';
+            wrapperClass += " " + 'has-error';
         }
 
         return (
@@ -34,7 +41,7 @@ var DropDown = React.createClass({
             <label htmlFor={this.props.value}>{this.props.label}</label>
             <div className="field">
 
-            <select className="form-control" ref='dropdown' value={this.props.value ? this.props.value.id : ''} onChange={this.onFormChange}>
+            <select className="form-control" ref='dropdown' value={this.state.value ? this.state.value : ''} onChange={this.onFormChange}>
               {options}
             </select>
 
