@@ -30,6 +30,12 @@ var AuthorStore = assign({}, EventEmitter.prototype, {
 
     getAuthorById: function(id) {
         return _.find(_authors, {id: id});
+    },
+
+    getAuthorNameById: function(id) {
+        var author = _.find(_authors, {id: id});
+        var result = {id: author.id, name: author.firstName + ' ' + author.lastName};
+        return result;
     }
 });
 

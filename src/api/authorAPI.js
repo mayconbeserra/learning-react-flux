@@ -23,6 +23,13 @@ var AuthorApi = {
 		return _clone(author);
 	},
 
+	getAuthorNameById: function(id) {
+		var author = _.find(authors, {id: id}).map(function(x) {
+				return {id: x.id, name: x.firstName + ' ' + x.lastName};
+		});
+		return author;
+	},
+
 	saveAuthor: function(author) {
 		//pretend an ajax call to web api is made here
 		console.log('Pretend this just saved the author to the DB via AJAX call...');
