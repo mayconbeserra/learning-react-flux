@@ -48161,10 +48161,10 @@ var CourseForm = React.createClass({displayName: "CourseForm",
         errors: React.PropTypes.object
     },
 
-    render: function() {
+    checkAuthorExists: function() {
 
         var authorExists = false;
-        debugger;
+
         if(this.props.authors) {
             var ids = this.props.authors.map(function(x) {
                 return x.id;
@@ -48174,6 +48174,11 @@ var CourseForm = React.createClass({displayName: "CourseForm",
                 authorExists = true;
             }
         }
+    },
+
+    render: function() {
+
+        var authorExists = this.checkAuthorExists();
 
         return (
             React.createElement("form", null, 

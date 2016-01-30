@@ -2,25 +2,26 @@
 
 This project is based on my studies on React, React Router, and Flux for building web applications.
 
-It also includes some stopics like gulp, browserfy and bootstrap.
+It also includes some topics like gulp, browserify and bootstrap.
 
-# Steps done on this project
+# Steps done in this project
 
-+ Setup the gulp in the project
-+ Setup the browserify in the project
-+ Setup the bootstrap
-+ Setup ESLint (ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code)
-+ Setup React (it's a javascript library for creating user interfaces. It was built to solve one problem: building large applications with data that changes over time)
-+ Setup lodash (A modern JavaScript utility library delivering modularity, performance, & extras)
++ Setup the gulp in the project;
++ Setup the browserify in the project;
++ Setup the bootstrap;
++ Setup ESLint (ESLint is a tool for identifying and reporting errors on patterns found in ECMAScript/JavaScript code);
++ Setup React (it's a javascript library for creating user interfaces. It was built to solve one problem: building large applications with data that changes over time);
++ Setup React Router;
++ Setup lodash (A modern JavaScript utility library delivering modularity, performance, & extras);
 
 # Concepts
 
-+ React Router
++ React Router: it keeps your UI in sync with the URL. It has a simple API with powerful features like lazy code loading, dynamic route matching, and location transition handling built right in. Make the URL your first thought, not an after-thought.
 
 # Props And State
 
-Props - look like HTML attributes, but immutable (e.g. this.props.username)
-State - holds mutable state (e.g. this.state.username)
++ Props - look like HTML attributes, but immutable (e.g. this.props.username);
++ State - holds mutable state (e.g. this.state.username).
 
 # Lifecycle functions for each react component
 
@@ -63,9 +64,9 @@ Why: cleanup.
 
 # Summary of Dynamic Data and Lifecycle
 
-+ Props: Pass data to child components;
++ Props: they are used to pass data to child components;
 + State: Data in controller view;
-+ Lifecycle: Handle bootstrapping and third party integrations;
++ Lifecycle: handle bootstrapping and third party integrations (http://facebook.github.io/react/docs/component-specs.html);
 
 # Composition
 
@@ -77,7 +78,7 @@ Controller View is a react component. It is also:
 
 Notes: It's recommended to have a single top-level controller view that interacts with the store,
 and passes all the necessary data down to the children.
-Another quick is - it's possible to nest your controller views, but it's not recommended to do so,
+Another quick note is - it's possible to nest your controller views, but it's not recommended to do so,
 since it can cause multiple data updates. It can also cause React's render method to get called multiple times.
 
 # Prop Validation (PropTypes)
@@ -108,17 +109,24 @@ Share behavior among multiple components.
 
 + Nested views map to nested routes
 + Declarative
-+ Used at facebook
++ it is also used by facebook
 
 ## Handling Transitions
 
-willTransitionTo - Determine if page should be transitioned to.
-willTransitionFrom - Run checks before user navigates away.
++ willTransitionTo - Determine if page should be transitioned to.
++ willTransitionFrom - Run checks before user navigates away.
 
-# Flux example
+# Flux Architecture
 
-1) AuthorList.js (ReactView)
-2) AuthorAction.js (Action)
-3) Dispatcher notify all the stores (Dispatcher)
-4) AuthorStore.js (Store)
-5) 
+Flux is the application architecture that Facebook uses for building client-side web applications. It complements React's composable view components by utilizing a unidirectional data flow. It's more of a pattern rather than a formal framework, and you can start using Flux immediately without a lot of new code.
+
+Flux applications have three major parts: the dispatcher, the stores, and the views (React components). These should not be confused with Model-View-Controller. Controllers do exist in a Flux application, but they are controller-views — views often found at the top of the hierarchy that retrieve data from the stores and pass this data down to their children. Additionally, action creators — dispatcher helper methods — are used to support a semantic API that describes all changes that are possible in the application. It can be useful to think of them as a fourth part of the Flux update cycle.
+
+Reference: https://facebook.github.io/flux/docs/overview.html
+
+## Flux example
+
++ AuthorList.js (ReactView)
++ AuthorAction.js (Action)
++ Dispatcher notify all the stores (Dispatcher)
++ AuthorStore.js (Store)

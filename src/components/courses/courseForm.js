@@ -14,10 +14,10 @@ var CourseForm = React.createClass({
         errors: React.PropTypes.object
     },
 
-    render: function() {
+    checkAuthorExists: function() {
 
         var authorExists = false;
-        debugger;
+
         if(this.props.authors) {
             var ids = this.props.authors.map(function(x) {
                 return x.id;
@@ -27,6 +27,11 @@ var CourseForm = React.createClass({
                 authorExists = true;
             }
         }
+    },
+
+    render: function() {
+
+        var authorExists = this.checkAuthorExists();
 
         return (
             <form>
