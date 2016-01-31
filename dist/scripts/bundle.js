@@ -48174,6 +48174,8 @@ var CourseForm = React.createClass({displayName: "CourseForm",
                 authorExists = true;
             }
         }
+
+        return authorExists;
     },
 
     render: function() {

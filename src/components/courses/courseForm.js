@@ -27,6 +27,8 @@ var CourseForm = React.createClass({
                 authorExists = true;
             }
         }
+
+        return authorExists;
     },
 
     render: function() {
