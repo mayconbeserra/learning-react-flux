@@ -18,8 +18,7 @@ var About = React.createClass({
         }
     },
     render: function () {
-        return (
-            <div>
+        return (<div>
                 <h1>About</h1>
                 <p>
                     This application uses the following technologies:

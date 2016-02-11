@@ -56,7 +56,7 @@ Dispatcher.register(function(action) {
         AuthorStore.emitChange();
         break;
       case ActionTypes.DELETE_AUTHOR:
-        debugger;
+        console.log('Store => Notify Views');
         _.remove(_authors, function(author) {
             return action.id === author.id;
         });
