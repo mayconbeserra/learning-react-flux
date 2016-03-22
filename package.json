@@ -4,7 +4,8 @@
   "description": "This project is based on my studies on React, React Router, and Flux for building web applications.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "gulp build"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/src/preprocessor.js",
@@ -37,8 +38,10 @@
   "homepage": "https://github.com/mayconbeserra/learning-react-flux#readme",
   "dependencies": {
     "6to5-jest": "^3.0.0",
+    "express": "^4.13.3",
     "babel-core": "^6.4.5",
     "babel-jest": "^6.0.1",
+    "body-parser": "^1.14.1",
     "bootstrap": "^3.3.5",
     "browserify": "^11.0.1",
     "flux": "^2.0.3",
